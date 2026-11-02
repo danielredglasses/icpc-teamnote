@@ -1,0 +1,344 @@
+\begin{itemize}
+    \item \textbf{Lucas's Theorem} \\
+    \begin{equation*}
+    \begin{aligned}
+    \binom{n}{k} \equiv \prod_{i=0}^{r} \binom{n_i}{k_i} \pmod{p}
+    \end{aligned}
+    \end{equation*} \\
+    where $p$ is the prime and $n=n_m n_{m-1} \cdots n_0$ and $k=k_m k_{m-1} \cdots k_0$ are the base representations of $p$.
+
+    \item \textbf{Euler's Theorem} \\
+    \begin{equation*}
+    \begin{aligned}
+    a^{\varphi(n)} \equiv 1 \pmod{n} \quad \text{for } \gcd(a, n) = 1
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Möbius Inversion Formula} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    f(n) = \sum_{d \mid n} g(d)
+\quad \Longleftrightarrow \quad
+g(n) = \sum_{d \mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    \sum_{d|n}\phi(d) = n \quad \Longleftrightarrow \quad \phi(n)=\sum_{d|n}\mu(d)\frac{n}{d}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Green's Theorem} \\
+    \begin{equation*}
+    \begin{aligned}
+    \oint_{C} \left( P\,dx + Q\,dy \right)
+=
+\iint_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)\, dA
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Fermat's Little Theorem} \\
+    \begin{equation*}
+    \begin{aligned}
+    a^{p-1} \equiv 1 \pmod{p} \quad \text{for } \gcd(a, p) = 1
+    \end{aligned}
+    \end{equation*} \\ 
+    Equivalently, $a^p \equiv a \pmod{p}$ for all integers $a$.
+
+    \item \textbf{Pick's theorem} \\
+    \begin{equation*}
+    \begin{aligned}
+    A = I + \frac{B}{2} - 1
+    \end{aligned}
+    \end{equation*} \\ 
+    where $A$ is the area of a simple polygon whose vertices are points on a lattice. $I$ is the number of interior lattice points, and $B$ is the number of boundary lattice points. 
+
+    \item \textbf{Burnside's Lemma} \\
+    \begin{equation*}
+    \begin{aligned}
+    |X/G| = \frac{1}{|G|} \sum_{g \in G} |X^g|
+    \end{aligned}
+    \end{equation*} \\ 
+    where $X$ is a set, $G$ is a group acting on $X$. $X/G$ is the set of orbits, and $X^g$ is the set of elements fixed by $g$.
+
+    \item \textbf{Kirchhoff's Theorem} \\
+    \begin{equation*}
+    \begin{aligned}
+    \text{Number of spanning trees } = \det(L^*)
+    \end{aligned}
+    \end{equation*} \\ 
+    where $L$ is the Laplacian matrix of the graph and $L^*$ is any cofactor of $L$.
+
+    \item \textbf{Cayley's Formula} \\
+    \begin{equation*}
+    \begin{aligned}
+    \text{Number of labeled trees with $n$ vertices} = n^{n-2}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Simpson's Rule} \\
+    \begin{equation*}
+    \begin{aligned}
+    \int_{a}^{b} f(x)\,dx \approx \frac{b-a}{6}
+\left[ f(a) + 4f\!\left(\frac{a+b}{2}\right) + f(b) \right]
+    \end{aligned}
+    \end{equation*} 
+
+    \item \textbf{Law of Sines} \\
+    \begin{equation*}
+    \begin{aligned}
+    \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Law of Cosines} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    c^2 = a^2 + b^2 - 2ab \cos C
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Area (Heron's Formula)} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    A = \sqrt{s(s-a)(s-b)(s-c)} \quad \text{where } s = \frac{a+b+c}{2}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Angle Addition Formulas} \\
+    \begin{equation*}
+    \begin{aligned}
+    \sin(A \pm B) &= \sin A \cos B \pm \cos A \sin B \\
+\cos(A \pm B) &= \cos A \cos B \mp \sin A \sin B \\
+\tan(A \pm B) &= \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Double Angle Formulas} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    \sin(2x) &= 2\sin x \cos x \\
+\cos(2x) &= \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x \\
+\tan(2x) &= \frac{2\tan x}{1 - \tan^2 x}
+    \end{aligned}
+    \end{equation*} 
+
+    \item \textbf{Half Angle Formulas} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    \sin\left(\frac{x}{2}\right) = \pm \sqrt{\frac{1 - \cos x}{2}}, \quad
+\cos\left(\frac{x}{2}\right) = \pm \sqrt{\frac{1 + \cos x}{2}}
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    \tan\left(\frac{x}{2}\right) = \frac{\sin x}{1 + \cos x}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Catalan Numbers} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    C_n = \frac{1}{n+1}\binom{2n}{n}
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    C_0 = 1, \quad C_{n+1}=\sum_{i=0}^n C_i C_{n-i} \quad \text{for } n \geq 0
+    \end{aligned}
+    \end{equation*} \\ 
+    $1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786$
+
+    \item \textbf{Ballot Number} \\
+    \begin{equation*}
+    \begin{aligned}
+    B(p, q) = \frac{p-q}{p+q}\binom{p+q}{p} \quad (p > q \geq 0)
+    \end{aligned}
+    \end{equation*} \\
+    counts vote sequences where A stays strictly ahead throughout; $B(n+1,n) = C_n$.
+
+    \item \textbf{Motzkin Numbers} \\
+    \begin{equation*}
+    \begin{aligned}
+    M_0 = 1, \quad M_{n+1} = M_n + \sum_{k=0}^{n-1} M_k M_{n-1-k}
+    \end{aligned}
+    \end{equation*} \\
+    counts paths $(0,0) \to (n,0)$ with steps $U=(1,1), D=(1,-1), F=(1,0)$ that never go below the $x$-axis.
+
+    \item \textbf{Narayana Numbers} \\
+    \begin{equation*}
+    \begin{aligned}
+    N(n, k) = \frac{1}{n}\binom{n}{k}\binom{n}{k-1} \quad (1 \leq k \leq n)
+    \end{aligned}
+    \end{equation*} \\
+    counts Dyck paths of length $2n$ with exactly $k$ peaks; $\sum_{k=1}^n N(n,k) = C_n$.
+
+    \item \textbf{Schr\"oder Numbers (large)} \\
+    \begin{equation*}
+    \begin{aligned}
+    S_0 = 1, \ S_1 = 2, \ (n+1)S_n = 3(2n-1)S_{n-1} - (n-2)S_{n-2} \quad (n \geq 2)
+    \end{aligned}
+    \end{equation*} \\
+    counts monotone paths $(0,0) \to (n,n)$ with steps $(1,0), (0,1), (1,1)$ that never rise above $y=x$.
+
+    \item \textbf{Stirling Numbers (1st kind, unsigned)} \\
+    \begin{equation*}
+    \begin{aligned}
+    \left[{n \atop k}\right] = (n-1)\left[{n-1 \atop k}\right] + \left[{n-1 \atop k-1}\right], \quad \left[{0 \atop 0}\right] = 1
+    \end{aligned}
+    \end{equation*} \\
+    unsigned $\left[{n\atop k}\right]$ counts permutations of $n$ elements with $k$ cycles.
+
+    \item \textbf{Stirling Numbers (2nd kind)} \\
+    \begin{equation*}
+    \begin{aligned}
+    \left\{{n \atop k}\right\} = k\left\{{n-1 \atop k}\right\} + \left\{{n-1 \atop k-1}\right\} = \frac{1}{k!}\sum_{j=0}^k (-1)^j \binom{k}{j}(k-j)^n
+    \end{aligned}
+    \end{equation*} \\
+    counts partitions of an $n$-set into $k$ nonempty unlabeled blocks.
+
+    \item \textbf{Eulerian Numbers} \\
+    \begin{equation*}
+    \begin{aligned}
+    A(n, k) = (k+1)A(n-1, k) + (n-k)A(n-1, k-1), \quad A(1, 0) = 1
+    \end{aligned}
+    \end{equation*} \\
+    counts permutations of $1..n$ with exactly $k$ descents ($0 \leq k \leq n-1$).
+
+    \item \textbf{Bell Numbers} \\
+    \begin{equation*}
+    \begin{aligned}
+    B_0 = 1, \quad B_{n+1} = \sum_{k=0}^n \binom{n}{k} B_k = \sum_{k=0}^n \left\{{n\atop k}\right\}
+    \end{aligned}
+    \end{equation*} \\
+    counts partitions of an $n$-set into any number of nonempty unlabeled blocks.
+    Equivalently, $B_n = n! \cdot [x^n]\, e^{e^x - 1}$: expand $e^{e^x-1}$ as a formal power series and take $n!$ times the coefficient of $x^n$.
+
+    \item \textbf{Partition Numbers} \\
+    \begin{equation*}
+    \begin{aligned}
+    p(n) = \sum_{k=1}^{\infty} (-1)^{k-1} \left[ p\!\left(n - \tfrac{k(3k-1)}{2}\right) + p\!\left(n - \tfrac{k(3k+1)}{2}\right) \right], \ p(0) = 1
+    \end{aligned}
+    \end{equation*} \\
+    (pentagonal number theorem) counts ways to write $n$ as a sum of positive integers, order not mattering.
+
+    \item \textbf{Parking Functions} \\
+    \begin{equation*}
+    \begin{aligned}
+    \text{count of length-}n\text{ parking functions} = (n+1)^{n-1}
+    \end{aligned}
+    \end{equation*} \\
+    $(a_i)$, $1 \leq a_i \leq n$, is one iff sorted $b_1 \leq \cdots \leq b_n$ has $b_i \leq i$ for all $i$.
+
+    \item \textbf{Fibonacci Numbers} \\
+    \begin{equation*}
+    \begin{aligned}
+    F_0 = 0, \quad F_1 = 1, \quad F_n=F_{n-1} + F_{n-2} \quad \text{for } n \geq 2 
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    \sum_{i=0}^nF_i = F_{n+2} - 1
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    \sum_{i=0}^n F_i^2 = F_n F_{n+1}
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    F_n^2 - F_{n-1}F_{n+1} = (-1)^{n+1}
+    \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+    \begin{aligned}
+    \gcd(F_m, F_n) = F_{\gcd(m, n)}
+    \end{aligned}
+    \end{equation*} \\ 
+    $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987$
+
+    \item \textbf{Point and Line Distance} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Derangement} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    !n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!}
+    \end{aligned}
+    \end{equation*} \\
+    $!n$ = permutations of $n$ elements with no fixed points.
+
+    \item \textbf{Harmonic Series} \\
+    \begin{equation*}
+    \begin{aligned}
+    H_n = \sum_{k=1}^{n} \frac{1}{k} \approx \ln n + \gamma + \frac{1}{2n} - \frac{1}{12n^2} + \frac{1}{120n^4}
+    \end{aligned}
+    \end{equation*} \\ 
+    where $\gamma \approx 0.5772156649$ is the Euler-Mascheroni constant.
+
+    \item \textbf{Stirling's Approximation} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    n! \sim \sqrt{2\pi n}\left(\frac{n}{e}\right)^n
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Taylor Series} \\
+    \begin{equation*}
+    \begin{gathered}
+    e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}, \quad
+\sin x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} \\
+\cos x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}, \quad
+\ln(1+x) = \sum_{n=1}^{\infty} (-1)^{n+1} \frac{x^n}{n}
+    \end{gathered}
+    \end{equation*}
+
+    \item \textbf{Lifting the exponent lemma} \\
+    \begin{equation*}
+    \begin{aligned}
+    v_p(a^n - b^n) &= v_p(a-b) + v_p(n)
+\quad (p \mid a-b,\ p \nmid ab) \\
+v_p(a^n - b^n) &= v_p(a-b) + v_p(a+b) + v_p(n) - 1
+\quad (p = 2,\ n \text{ even})
+    \end{aligned}
+    \end{equation*}
+
+    \item \textbf{Matroid} \\
+    A matroid $M = (E, \mathcal{I})$ is a ground set $E$ with a family of ``independent'' subsets
+    $\mathcal{I} \subseteq 2^E$ satisfying:
+    (I1) $\emptyset \in \mathcal{I}$;
+    (I2) hereditary: $B \in \mathcal{I}, A \subseteq B \implies A \in \mathcal{I}$;
+    (I3) exchange: $A, B \in \mathcal{I}, |A| < |B| \implies \exists x \in B \setminus A$ with
+    $A \cup \{x\} \in \mathcal{I}$. \\
+    A maximal independent set is a \emph{basis}; by (I3) all bases have the same size, the
+    \emph{rank} $r(M)$. The greedy algorithm (sort elements by weight, add each if it keeps the
+    current set independent) finds a max-weight independent set / basis for any matroid, and only
+    for matroids (this is essentially matroid's defining property for optimization).
+    Common examples: \emph{graphic matroid} ($E$ = edges, independent = forests -- greedy on
+    this is Kruskal's MST), \emph{linear matroid} ($E$ = vectors, independent = linearly
+    independent sets), \emph{uniform matroid} $U_{k,n}$ (independent = any subset of size $\le k$),
+    \emph{transversal matroid} of a bipartite graph $G=(X,Y,E)$ ($A \subseteq X$ independent iff
+    matchable into $Y$ -- see \emph{Matching is a Linear Matroid} for its linear representation).
+
+    \item \textbf{Matroid Intersection Theorem} \\
+    For two matroids $M_1=(E,\mathcal{I}_1)$, $M_2=(E,\mathcal{I}_2)$ on the same ground set,
+    \begin{equation*}
+    \begin{aligned}
+    \max_{I \in \mathcal{I}_1 \cap \mathcal{I}_2} |I| = \min_{A \subseteq E} \big(r_1(A) + r_2(E \setminus A)\big)
+    \end{aligned}
+    \end{equation*}
+    where $r_1, r_2$ are the rank functions of $M_1, M_2$. A maximum common independent set can be
+    found in polynomial time by repeatedly augmenting along a shortest path in the exchange graph
+    (arcs $y \to x$ for $x \in I, y \notin I$ if $I - x + y \in \mathcal{I}_1$, and $x \to y$ if
+    $I - x + y \in \mathcal{I}_2$, plus source arcs from $\{y : I+y \in \mathcal{I}_1\}$ and sink
+    arcs to $\{y : I+y \in \mathcal{I}_2\}$), analogous to augmenting paths in bipartite matching.
+    Bipartite matching itself is the intersection of two partition (transversal) matroids on the
+    edge set, one per side; this is why matching, arborescence, and colored-forest problems all
+    reduce to matroid intersection. (Three or more matroids: intersection is NP-hard in general.)
+
+\end{itemize}

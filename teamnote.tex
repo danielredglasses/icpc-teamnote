@@ -1,0 +1,354 @@
+\documentclass[8pt, a4paper, oneside]{extarticle}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[compact]{titlesec}
+\titlespacing*{\section}
+{0pt}{0px plus 1px minus 0px}{-2px plus 0px minus 0px}
+\titlespacing*{\subsection}
+{0pt}{0px plus 1px minus 0px}{0px plus 3px minus 3px}
+
+\setlength{\columnseprule}{0.4pt}
+\pagenumbering{arabic}
+
+\usepackage{kotex}
+
+\usepackage[left=0.8cm, right=0.8cm, top=2cm, bottom=0.3cm, a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{minted}
+\usepackage{color, hyperref}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\lhead{Page \thepage  \ of \pageref{LastPage} }
+\rhead{Yonsei University, temporary\_teamname}
+\fancyfoot{}
+
+\headsep 0.2cm
+
+\setminted{breaklines=true, tabsize=2, breaksymbolleft=,fontsize=\footnotesize, style=perldoc}
+
+\title{temporary\_teamname}
+\author{박경욱}
+\date{Compiled on \today}
+
+\newcommand{\revised}{Should be \textcolor{red}{\textbf{revised}}.}
+\newcommand{\tested}{Should be \textcolor{red}{\textbf{tested}}.}
+\newcommand{\added}{Should be \textcolor{red}{\textbf{added}}.}
+\newcommand{\WIP}{\textcolor{red}{\textbf{WIP}}}
+\begin{document}
+\begin{multicols*}{2}
+{
+    \Large
+    \maketitle
+    \tableofcontents
+}
+\thispagestyle{fancy}
+
+\pagebreak
+
+\section{Mathematics}
+\subsection{Bit Function}
+\inputminted{c++}{codes/mathematics/bit_function.cpp}
+
+\subsection{XOR / Linear Basis}
+\inputminted{c++}{codes/mathematics/xor_basis.cpp}
+
+\subsection{Fast Walsh-Hadamard Transform (FWT)}
+\inputminted{c++}{codes/mathematics/fwt.cpp}
+
+\subsection{Modular Inverse}
+\inputminted{c++}{codes/mathematics/modular_inverse.cpp}
+
+\subsection{Extended Euclidean Algorithm}
+\inputminted{c++}{codes/mathematics/extended_euclidean_algorithm.cpp}
+
+\subsection{Chinese Remainder Theorem (CRT)}
+\inputminted{c++}{codes/mathematics/crt.cpp}
+
+\subsection{Miller Rabin + Pollard Rho}
+\inputminted{c++}{codes/mathematics/miller_rabin_pollard_rho.cpp}
+
+\subsection{Discrete Log ($O(\sqrt{p})$)}
+\inputminted{c++}{codes/mathematics/discrete_log.cpp}
+
+\subsection{Discrete Sqrt ($O(\log^2 p)$)}
+\inputminted{c++}{codes/mathematics/discrete_sqrt.cpp}
+
+\subsection{Polynomial}
+\inputminted{c++}{codes/mathematics/polynomial.cpp}
+
+\subsection{Power Sums via NTT / Other Polynomial Tricks}
+\inputminted{c++}{codes/mathematics/power_sum_ntt.cpp}
+
+\subsection{Berlekamp Massey}
+\inputminted{c++}{codes/mathematics/berlekamp_massey.cpp}
+
+\subsection{Floor Sum}
+\inputminted{c++}{codes/mathematics/floor_sum.cpp}
+
+\subsection{Kitamasa ($O(k \log k \log N)$)}
+\inputminted{c++}{codes/mathematics/kitamasa.cpp}
+
+\section{Dynamic Programming}
+\subsection{Deque trick}
+\inputminted{c++}{codes/dp/deque_trick.cpp}
+
+\subsection{Convex Hull Trick (CHT)}
+\inputminted{c++}{codes/dp/cht.cpp}
+
+\subsection{DnC Optimization}
+\inputminted{c++}{codes/dp/dnc.cpp}
+
+\subsection{Knuth Optimization}
+\inputminted{c++}{codes/dp/knuth.cpp}
+
+\subsection{Slope Trick ($O(n \log n)$)}
+\inputminted{c++}{codes/dp/slope_trick.cpp}
+
+\subsection{Submask Enumeration}
+\inputminted{c++}{codes/dp/submask.cpp}
+
+\subsection{Sum Over Subsets (SOS) DP}
+\inputminted{c++}{codes/dp/sos_dp.cpp}
+
+\subsection{Connection Profile DP}
+\inputminted{c++}{codes/dp/connection_profile_dp.cpp}
+
+\subsection{Alien's Trick}
+\inputminted{c++}{codes/dp/alien_trick.cpp}
+
+\section{Data Structure}
+\subsection{Splay Tree}
+\inputminted{c++}{codes/data_structure/splay_tree.cpp}
+
+\subsection{EER Tree}
+\inputminted{c++}{codes/data_structure/eer_tree.cpp}
+
+\subsection{Link-Cut Tree}
+\inputminted{c++}{codes/data_structure/link_cut_tree.cpp}
+
+\subsection{Li-Chao Tree}
+\inputminted{c++}{codes/data_structure/li_chao_tree.cpp}
+
+\section{Geometry}
+\subsection{CCW}
+\inputminted{c++}{codes/geometry/ccw.cpp}
+
+\subsection{Convex Hull}
+\inputminted{c++}{codes/geometry/convex_hull.cpp}
+
+\subsection{3D Convex Hull}
+\inputminted{c++}{codes/geometry/convex_hull_3d.cpp}
+
+\subsection{Rotating Callipers}
+\inputminted{c++}{codes/geometry/rotating_callipers.cpp}
+
+\subsection{Closest Point on Convex Polygon to a Line}
+\inputminted{c++}{codes/geometry/closest_point_to_line.cpp}
+
+\subsection{Minimum Bounding Rectangle ($O(n)$)}
+\inputminted{c++}{codes/geometry/min_bounding_rectangle.cpp}
+
+\subsection{Closest Pair of Points}
+\inputminted{c++}{codes/geometry/closest_pair.cpp}
+
+\subsection{KD-Tree}
+\inputminted{c++}{codes/geometry/kd_tree.cpp}
+
+\subsection{2D Minimum Enclosing Circle $O(n^2)$}
+\inputminted{c++}{codes/geometry/2d_minimum_enclosing_circle.cpp}
+
+\subsection{3D Minimum Enclosing Circle}
+\inputminted{c++}{codes/geometry/3d_minimum_enclosing_circle.cpp}
+
+\subsection{Point in Polygon / Segment-Polygon Intersection}
+\inputminted{c++}{codes/geometry/point_in_polygon.cpp}
+
+\subsection{Point/Segment Reflection and Rotation}
+\inputminted{c++}{codes/geometry/reflect_rotate.cpp}
+
+\subsection{3D Distances (Point-Line, Line-Line, Point-Plane)}
+\inputminted{c++}{codes/geometry/distance_3d.cpp}
+
+\subsection{Cut Polygon by Line ($O(n)$)}
+\inputminted{c++}{codes/geometry/polygon_clip.cpp}
+
+\subsection{Polygon Union Area}
+\inputminted{c++}{codes/geometry/polygon_union_area.cpp}
+
+\subsection{Polygon Centroid}
+\inputminted{c++}{codes/geometry/polygon_centroid.cpp}
+
+\subsection{Circle-Line Intersection}
+\inputminted{c++}{codes/geometry/circle_line_intersect.cpp}
+
+\subsection{Circle-Circle Intersection}
+\inputminted{c++}{codes/geometry/circle_circle_intersect.cpp}
+
+\subsection{Segment-Circle Intersection}
+\inputminted{c++}{codes/geometry/segment_circle_intersect.cpp}
+
+\subsection{Half Plane Intersection (HPI)}
+\inputminted{c++}{codes/geometry/hpi.cpp}
+
+\subsection{Planar Graph}
+\inputminted{c++}{codes/geometry/planar_graph.cpp}
+
+\subsection{Shamos-Hoey}
+\inputminted{c++}{codes/geometry/shamos_hoey.cpp}
+
+\subsection{Voronoi Diagram}
+\inputminted{c++}{codes/geometry/voronoi.cpp}
+
+\section{Graph}
+\subsection{SPFA}
+\inputminted{c++}{codes/graph/spfa.cpp}
+
+\subsection{SCC + 2-SAT}
+\inputminted{c++}{codes/graph/scc.cpp}
+
+\subsection{BCC}
+\inputminted{c++}{codes/graph/bcc.cpp}
+
+\subsection{Cactus}
+\inputminted{c++}{codes/graph/cactus.cpp}
+
+\subsection{Euler Path/Circuit}
+\inputminted{c++}{codes/graph/euler.cpp}
+
+\subsection{Articulation Point}
+\inputminted{c++}{codes/graph/articulation_point.cpp}
+
+\subsection{Articulation Bridge}
+\inputminted{c++}{codes/graph/articulation_bridge.cpp}
+
+\subsection{Dominator Tree}
+\inputminted{c++}{codes/graph/dominator_tree.cpp}
+
+\subsection{Offline Dynamic Connectivity}
+\inputminted{c++}{codes/graph/offline_dynamic_connectivity.cpp}
+
+\subsection{Online Dynamic MST}
+\inputminted{c++}{codes/graph/online_dynamic_mst.cpp}
+
+\subsection{$k$th shortest path (Eppstein's algorithm)}
+\inputminted{c++}{codes/graph/kth_shortest_path.cpp}
+
+\section{Tree}
+\subsection{Heavy Light Decomposition (HLD)}
+\inputminted{c++}{codes/tree/hld.cpp}
+
+\subsection{Centroid Decomposition}
+\inputminted{c++}{codes/tree/centroid_decomposition.cpp}
+
+\subsection{Tree Compression}
+\inputminted{c++}{codes/tree/tree_compression.cpp}
+
+\subsection{Tree Isomorphism}
+\inputminted{c++}{codes/tree/tree_isomorphism.cpp}
+
+\section{Flow / Matching}
+\subsection{Bipartite Matching (Hopcroft-Karp)}
+\inputminted{c++}{codes/flow_matching/hopcroft_karp.cpp}
+
+\subsection{Matching / Matroid Lemmas}
+\input{codes/flow_matching/lemma}
+
+\subsection{Max Flow (Dinic)}
+\inputminted{c++}{codes/flow_matching/dinic.cpp}
+
+% \subsection{Min Cost Max Flow (MCMF) - SPFA}
+% \inputminted{c++}{codes/flow_matching/mcmf_spfa.cpp}
+
+\subsection{Min Cost Max Flow (MCMF) - Dijkstra + Potentials}
+\inputminted{c++}{codes/flow_matching/mcmf_johnson.cpp}
+
+\subsection{Stable Marriage Problem}
+\inputminted{c++}{codes/flow_matching/stable_marriage.cpp}
+
+\subsection{Circulation (Lower Bound Flow)}
+\inputminted{c++}{codes/flow_matching/circulation.cpp}
+
+\subsection{Global Min cut (Stoer-Wagner)}
+\inputminted{c++}{codes/flow_matching/stoer_wagner.cpp}
+
+\subsection{Gomory-Hu Tree (All-Pairs Min Cut)}
+\inputminted{c++}{codes/flow_matching/gomory_hu.cpp}
+
+\subsection{General Matching (Blossom)}
+\inputminted{c++}{codes/flow_matching/general_matching.cpp}
+
+\subsection{Hungarian Algorithm ($O(n^3)$)}
+\inputminted{c++}{codes/flow_matching/hungarian.cpp}
+
+\section{String}
+\subsection{KMP}
+\inputminted{c++}{codes/string/kmp.cpp}
+
+\subsection{Aho-Corasick}
+\inputminted{c++}{codes/string/aho_corasick.cpp}
+
+\subsection{Hashing (Rabin Karp)}
+\inputminted{c++}{codes/string/hashing.cpp}
+
+\subsection{Manacher}
+\inputminted{c++}{codes/string/manacher.cpp}
+
+\subsection{Suffix Array + LCP ($O(n \log^2 n)$)}
+\inputminted{c++}{codes/string/suffix_array.cpp}
+
+\subsection{Suffix Automaton}
+\inputminted{c++}{codes/string/suffix_automaton.cpp}
+
+\subsection{Z Algorithm}
+\inputminted{c++}{codes/string/z.cpp}
+
+\subsection{LCS - Hirschberg ($O(nm)$)}
+\inputminted{c++}{codes/string/hirschberg.cpp}
+
+\section{Miscellaneous}
+\subsection{Random Generator}
+\inputminted{c++}{codes/miscellaneous/random_generator.cpp}
+
+\subsection{Rope}
+\inputminted{c++}{codes/miscellaneous/rope.cpp}
+
+\subsection{PBDS}
+\inputminted{c++}{codes/miscellaneous/pbds.cpp}
+
+\subsection{Big Integer}
+\inputminted{c++}{codes/miscellaneous/big_integer.cpp}
+
+\subsection{Mo's}
+\inputminted{c++}{codes/miscellaneous/mos.cpp}
+
+\subsection{CDQ ($O(n \log n)$)}
+\inputminted{c++}{codes/miscellaneous/cdq.cpp}
+
+% \subsection{Parallel Binary Search}
+% \inputminted{c++}{codes/miscellaneous/parallel_binary_search.cpp}
+
+\subsection{Faker's Algorithm ($O(n \log n)$)}
+\inputminted{c++}{codes/miscellaneous/faker.cpp}
+
+\subsection{Matroid Intersection}
+\inputminted{c++}{codes/miscellaneous/matroid_intersection.cpp}
+
+\subsection{Primes and Divisors Number}
+\input{codes/miscellaneous/primes}
+
+\subsection{Lemma}
+\input{codes/miscellaneous/lemma}
+
+\section{Template}
+\inputminted{c++}{codes/template/template.cpp}
+
+\end{multicols*}
+\end{document}

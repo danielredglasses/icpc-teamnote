@@ -1,0 +1,14 @@
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+_minted*/
+
+# macOS
+.DS_Store
+
+# Claude Code
+CLAUDE.md

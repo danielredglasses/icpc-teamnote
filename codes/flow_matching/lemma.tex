@@ -1,0 +1,43 @@
+\begin{itemize}
+    \item \textbf{Hall's Marriage Theorem} \\
+    A bipartite graph $G=(X, Y, E)$ has a matching that covers every vertex in $X$ if and only if
+    for every subset $S \subseteq X$, $|N(S)| \geq |S|$, where $N(S)$ is the set of neighbors of $S$.
+
+    \item \textbf{K\H{o}nig's Theorem} \\
+    In a bipartite graph $G=(X, Y, E)$,
+    \begin{equation*}
+    \begin{aligned}
+    |\text{maximum matching}| = |\text{minimum vertex cover}|
+    \end{aligned}
+    \end{equation*} \\
+    By LP duality / Hall's theorem, this also gives $|\text{maximum independent set}| = |X|+|Y| - |\text{maximum matching}|$.
+
+    \textbf{Constructing a minimum vertex cover from a maximum matching:} \\
+    Let $M$ be a maximum matching. From every unmatched vertex in $X$, run a DFS/BFS along
+    alternating paths (unmatched edges from $X$ to $Y$, matched edges from $Y$ back to $X$),
+    and let $Z$ be the set of all vertices reached (including the unmatched starting vertices). Then
+    \begin{equation*}
+    \begin{aligned}
+    \text{minimum vertex cover} = (X \setminus Z) \cup (Y \cap Z)
+    \end{aligned}
+    \end{equation*} \\
+    i.e. take the $X$-side vertices \emph{not} reached by an alternating path, and the $Y$-side
+    vertices that \emph{are} reached. Its complement, $(X \cap Z) \cup (Y \setminus Z)$, is a
+    maximum independent set.
+
+    \item \textbf{Matching is a Linear Matroid} \\
+    In a bipartite graph $G=(X,Y,E)$, the family of subsets $A \subseteq X$ that can be
+    saturated by some matching (the \emph{transversal matroid} of $G$) is representable as a
+    linear matroid: assign each $y \in Y$ a random vector $v_y$ (e.g. random values mod a large
+    prime), and each $x \in X$ the vector $u_x = \sum_{(x,y)\in E} v_y$. Then, with high
+    probability, $A \subseteq X$ is matchable $\iff$ $\{u_x : x \in A\}$ is linearly independent, so
+    \begin{equation*}
+    \begin{aligned}
+    |\text{maximum matching}| = \operatorname{rank}\big((u_x)_{x \in X}\big)
+    \end{aligned}
+    \end{equation*}
+    This is the theoretical basis for randomized algebraic matching: the biadjacency matrix
+    (bipartite case) or Tutte matrix (general graphs, as in \texttt{general\_matching.cpp}) has
+    rank equal to twice the max matching (general graphs) or exactly the max matching
+    (bipartite), with failure probability $\leq n / p$ for a random prime/modulus $p$.
+\end{itemize}
