@@ -95,9 +95,10 @@ struct Poly {
     Poly& operator -= (const Poly& other) { return *this = *this - other; }
     Poly submod(const Poly& other) const { return (*this - other).modular(); }
 
-    // long double FFT: exact only while result values stay well below
-    // ~1e12; use mulmod otherwise
-    Poly operator * (const Poly& other) const {
+    Poly operator * (const Poly& other) const { return MOD == 0 ? multiply(other) : mulmod(other); }
+    Poly& operator *= (const Poly& other) { return *this = *this * other; }
+
+    Poly multiply(const Poly& other) const {
         int sz = 1;
         while(sz < deg() + other.deg()) sz <<= 1;
         
@@ -114,7 +115,33 @@ struct Poly {
         for(int i=0; i<sz; i++) res[i] = round(fa[i].real());
         return Poly(res);
     }
-    Poly& operator *= (const Poly& other) { return *this = *this * other; }
+
+    Poly multiply_with_prec(const Poly& other) const {
+        int sz = 2;
+        while(sz < deg() + other.deg()) sz <<= 1;
+
+        vector<cpx> v1(sz), v2(sz), r1(sz), r2(sz);
+        for(int i=0; i<deg(); i++) v1[i] = cpx(coef[i] >> 15, coef[i] & 32767);
+        for(int i=0; i<other.deg(); i++) v2[i] = cpx(other.coef[i] >> 15, other.coef[i] & 32767);
+        fft(v1, false); fft(v2, false);
+
+        for(int i=0; i<sz; i++) {
+            int j = i ? sz-i : 0;
+            cpx a1 = (v1[i] + conj(v1[j])) * cpx(0.5, 0), a2 = (v1[i] - conj(v1[j])) * cpx(0, -0.5);
+            cpx b1 = (v2[i] + conj(v2[j])) * cpx(0.5, 0), b2 = (v2[i] - conj(v2[j])) * cpx(0, -0.5);
+            r1[i] = a1 * b1 + a1 * b2 * cpx(0, 1);
+            r2[i] = a2 * b1 + a2 * b2 * cpx(0, 1);
+        }
+        fft(r1, true); fft(r2, true);
+
+        vector<T> res(sz);
+        for(int i=0; i<sz; i++) {
+            ll av = llround(r1[i].real()) % MOD, cv = llround(r2[i].imag()) % MOD;
+            ll bv = (llround(r1[i].imag()) + llround(r2[i].real())) % MOD;
+            res[i] = (((av << 30) + (bv << 15) + cv) % MOD + MOD) % MOD;
+        }
+        return Poly(res);
+    }
 
     static void fft(vector<cpx>& a, bool invert) {
         int n = a.size();
@@ -125,16 +152,19 @@ struct Poly {
             if(i < j) swap(a[i], a[j]);
         }
         
+        vector<cpx> roots(n/2);
+        for(int i=0; i<n/2; i++) {
+            ld ang = 2 * acosl(-1) * i / n * (invert ? -1 : 1);
+            roots[i] = cpx(cosl(ang), sinl(ang));
+        }
+
         for(int len=2; len<=n; len<<=1) {
-            ld ang = 2 * M_PI / len * (invert ? -1 : 1);
-            cpx cw(cos(ang), sin(ang));
+            int step = n / len;
             for(int i=0; i<n; i+=len) {
-                cpx w(1);
                 for(int j=0; j<len/2; j++) {
-                    cpx u = a[i+j], v = a[i+j+len/2] * w;
+                    cpx u = a[i+j], v = a[i+j+len/2] * roots[j*step];
                     a[i+j] = u + v;
                     a[i+j+len/2] = u - v;
-                    w *= cw;
                 }
             }
         }

@@ -1,10 +1,3 @@
-// Feasible circulation with lower bounds, on top of Dinic. Time: O(V^2 E)
-// usage: set n; add_edge(u, v, lower, upper) for every edge;
-// bool ok = feasible_circulation();
-// if ok, actual flow on each edge = lower + (upper-lower - remaining .cap
-// on that edge's Dinic entry)
-// Each edge keeps flow in [lower, upper]; every vertex must conserve flow.
-// Flow actually pushed on an edge = lower + (upper - lower - e.cap).
 struct edge { 
     int to, rev; 
     ll cap; 
@@ -69,12 +62,6 @@ bool feasible_circulation() {
     return max_flow(ss, tt) == need;
 }
 
-// Max s-t flow with lower bounds:
-//   add_edge(t, s, 0, 4e18) as the last edge, then feasible_circulation();
-//   the flow on that edge is a feasible s-t flow, and max_flow(s, t) on the
-//   leftover residual graph increases it to the maximum.
-// Min s-t flow: use max_flow(t, s) on the residual instead.
-
 // Example usage: max flow from s to t where each edge has a lower and upper bound.
 void SolveProblem() {
     int m, s, t; cin >> n >> m >> s >> t;
@@ -85,7 +72,6 @@ void SolveProblem() {
 
     const ll INF = 4e18;
     int back_idx = edges[t].size();
-    // any feasible circulation now carries a feasible s-t flow on this edge
     add_edge(t, s, 0, INF);
 
     if(!feasible_circulation()) { 
@@ -93,10 +79,7 @@ void SolveProblem() {
         return; 
     }
 
-    // push more flow on whatever residual capacity is left; this can shuffle
-    // flow off of the back edge, so read it after
     ll extra = max_flow(s, t);
-    // total flow now sitting on the back edge
     ll base_flow = INF - edges[t][back_idx].cap;
 
     cout << base_flow + extra << "\n";

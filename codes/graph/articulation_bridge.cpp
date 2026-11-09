@@ -1,7 +1,5 @@
 int nodenum[100005], ord[100005], cnt = 0;
 vector<pii> result;
-// usage: edges[u] must hold (v, edge id) pairs so a parallel edge isn't
-// mistaken for the parent edge
 void dfs(int index, int parent_eid) {
     nodenum[index] = ord[index] = ++cnt;
     for(auto [i, eid] : edges[index]) if(eid != parent_eid) {

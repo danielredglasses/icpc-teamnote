@@ -1,7 +1,6 @@
 // cus_like[i] = customer i's resources in preference order
 // (1-indexed, most preferred first)
 // res_pref[r][i] = resource r's rank for customer i (lower = better)
-// Time: O(n^2)
 int n;
 vi cus_like[1005];
 int res_pref[1005][1005], cap[1005];

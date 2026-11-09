@@ -1,4 +1,3 @@
-// Time: O(F * E log V), F = max flow value
 int n, source, sink;
 vi edges[405];
 ll capacity[405][405], flow[405][405], cost[405][405];

@@ -1,4 +1,3 @@
-// Time: expected O(n) (randomized incremental, thanks to shuffling the input order)
 struct circle {
     pld c; ld r;
     circle() { }

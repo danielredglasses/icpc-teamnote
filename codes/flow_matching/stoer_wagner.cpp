@@ -1,4 +1,4 @@
-// Global min cut of an undirected graph, O(V^3). 'adj' is destroyed by the merges.
+// Global min cut of an undirected graph. 'adj' is destroyed by the merges.
 // usage: set n and adj[1..n][1..n] (symmetric edge weights, 0 for no edge);
 // ll cut = stoer_wagner();
 int n; ll adj[505][505];
@@ -27,7 +27,6 @@ ll stoer_wagner() {
 
         result = min(result, cut_weight[last]);
 
-        // merge 'last' into 'prev'
         merged[last] = true;
         for(int i=1; i<=n; i++) {
             adj[prev][i] += adj[last][i];

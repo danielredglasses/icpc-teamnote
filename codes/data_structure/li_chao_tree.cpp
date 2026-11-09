@@ -1,7 +1,6 @@
-// max query; for min, insert (-a, -b) and negate the answer. 
 const ll X_MIN = -1e9, X_MAX = 1e9, NEG = -4e18;
 
-struct line { // y = ax + b
+struct line {
     ll a, b;
     line() : a(0), b(NEG) { }
     line(ll _a, ll _b) : a(_a), b(_b) { }
@@ -47,16 +46,6 @@ ll find_mx(int index, ll l, ll r, ll x) {
 
 void SolveProblem() {
     root = ++node_cnt;
-    int q; cin >> q;
-    for(int i=1; i<=q; i++) {
-        int type; cin >> type;
-        if(type == 1) {
-            ll a, b; cin >> a >> b;
-            add_line(root, X_MIN, X_MAX, line(a, b));
-        }
-        else {
-            ll x; cin >> x;
-            cout << find_mx(root, X_MIN, X_MAX, x) << "\n";
-        }
-    }
+    add_line(root, X_MIN, X_MAX, line(a, b));
+    cout << find_mx(root, X_MIN, X_MAX, x) << "\n";
 }

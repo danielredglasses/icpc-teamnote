@@ -162,7 +162,6 @@ struct splay_tree {
             if(!tree[x].r) break;
             x = tree[x].r;
         }
-        // x becomes the root of cur's old left subtree; it has no right child
         splay(x);
 
         tree[x].r = r; tree[r].p = x;

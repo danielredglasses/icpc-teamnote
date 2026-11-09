@@ -26,8 +26,8 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
-\lhead{Page \thepage  \ of \pageref{LastPage} }
-\rhead{Yonsei University, temporary\_teamname}
+\rhead{Page \thepage  \ of \pageref{LastPage} }
+\lhead{Yonsei University, temporary\_teamname}
 \fancyfoot{}
 
 \headsep 0.2cm
@@ -60,6 +60,9 @@
 \subsection{XOR / Linear Basis}
 \inputminted{c++}{codes/mathematics/xor_basis.cpp}
 
+\subsection{Gaussian Elimination}
+\inputminted{c++}{codes/mathematics/gaussian_elimination.cpp}
+
 \subsection{Fast Walsh-Hadamard Transform (FWT)}
 \inputminted{c++}{codes/mathematics/fwt.cpp}
 
@@ -72,7 +75,7 @@
 \subsection{Chinese Remainder Theorem (CRT)}
 \inputminted{c++}{codes/mathematics/crt.cpp}
 
-\subsection{Miller Rabin + Pollard Rho}
+\subsection{Miller Rabin + Pollard Rho (is\_prime $O(\log^2 n)$, factorize expected $O(n^{1/4} \log n)$ per factor)}
 \inputminted{c++}{codes/mathematics/miller_rabin_pollard_rho.cpp}
 
 \subsection{Discrete Log ($O(\sqrt{p})$)}
@@ -137,6 +140,9 @@
 \subsection{Li-Chao Tree}
 \inputminted{c++}{codes/data_structure/li_chao_tree.cpp}
 
+\subsection{Stern-Brocot Tree ($O(\log^2 N)$)}
+\inputminted{c++}{codes/data_structure/stern_brocot_tree.cpp}
+
 \section{Geometry}
 \subsection{CCW}
 \inputminted{c++}{codes/geometry/ccw.cpp}
@@ -162,14 +168,14 @@
 \subsection{KD-Tree}
 \inputminted{c++}{codes/geometry/kd_tree.cpp}
 
-\subsection{2D Minimum Enclosing Circle $O(n^2)$}
+\subsection{2D Minimum Enclosing Circle ($O(n)$)}
 \inputminted{c++}{codes/geometry/2d_minimum_enclosing_circle.cpp}
 
 \subsection{3D Minimum Enclosing Circle}
 \inputminted{c++}{codes/geometry/3d_minimum_enclosing_circle.cpp}
 
-\subsection{Point in Polygon / Segment-Polygon Intersection}
-\inputminted{c++}{codes/geometry/point_in_polygon.cpp}
+% \subsection{Point in Polygon / Segment-Polygon Intersection}
+% \inputminted{c++}{codes/geometry/point_in_polygon.cpp}
 
 \subsection{Point/Segment Reflection and Rotation}
 \inputminted{c++}{codes/geometry/reflect_rotate.cpp}
@@ -177,8 +183,8 @@
 \subsection{3D Distances (Point-Line, Line-Line, Point-Plane)}
 \inputminted{c++}{codes/geometry/distance_3d.cpp}
 
-\subsection{Cut Polygon by Line ($O(n)$)}
-\inputminted{c++}{codes/geometry/polygon_clip.cpp}
+% \subsection{Cut Polygon by Line ($O(n)$)}
+% \inputminted{c++}{codes/geometry/polygon_clip.cpp}
 
 \subsection{Polygon Union Area}
 \inputminted{c++}{codes/geometry/polygon_union_area.cpp}
@@ -208,7 +214,7 @@
 \inputminted{c++}{codes/geometry/voronoi.cpp}
 
 \section{Graph}
-\subsection{SPFA}
+\subsection{SPFA ($O(VE)$)}
 \inputminted{c++}{codes/graph/spfa.cpp}
 
 \subsection{SCC + 2-SAT}
@@ -217,7 +223,7 @@
 \subsection{BCC}
 \inputminted{c++}{codes/graph/bcc.cpp}
 
-\subsection{Cactus}
+\subsection{Cactus ($O(E \log E)$)}
 \inputminted{c++}{codes/graph/cactus.cpp}
 
 \subsection{Euler Path/Circuit}
@@ -238,7 +244,7 @@
 \subsection{Online Dynamic MST}
 \inputminted{c++}{codes/graph/online_dynamic_mst.cpp}
 
-\subsection{$k$th shortest path (Eppstein's algorithm)}
+\subsection{$k$th shortest path ($O((V+E) \log V + K \log K)$)}
 \inputminted{c++}{codes/graph/kth_shortest_path.cpp}
 
 \section{Tree}
@@ -255,38 +261,38 @@
 \inputminted{c++}{codes/tree/tree_isomorphism.cpp}
 
 \section{Flow / Matching}
-\subsection{Bipartite Matching (Hopcroft-Karp)}
+\subsection{Bipartite Matching (Hopcroft-Karp) ($O(E \sqrt V)$)}
 \inputminted{c++}{codes/flow_matching/hopcroft_karp.cpp}
 
-\subsection{Matching / Matroid Lemmas}
-\input{codes/flow_matching/lemma}
-
-\subsection{Max Flow (Dinic)}
+\subsection{Max Flow (Dinic) ($O(V^2 E)$)}
 \inputminted{c++}{codes/flow_matching/dinic.cpp}
 
 % \subsection{Min Cost Max Flow (MCMF) - SPFA}
 % \inputminted{c++}{codes/flow_matching/mcmf_spfa.cpp}
 
-\subsection{Min Cost Max Flow (MCMF) - Dijkstra + Potentials}
+\subsection{MCMF - Dijkstra + Potentials ($O(F * E \log V)$)}
 \inputminted{c++}{codes/flow_matching/mcmf_johnson.cpp}
 
-\subsection{Stable Marriage Problem}
+\subsection{Stable Marriage Problem ($O(n^2)$)}
 \inputminted{c++}{codes/flow_matching/stable_marriage.cpp}
 
-\subsection{Circulation (Lower Bound Flow)}
+\subsection{Circulation (Lower Bound Flow) ($O(V^2 E)$)}
 \inputminted{c++}{codes/flow_matching/circulation.cpp}
 
-\subsection{Global Min cut (Stoer-Wagner)}
+\subsection{Global Min cut (Stoer-Wagner) ($O(V^3)$)}
 \inputminted{c++}{codes/flow_matching/stoer_wagner.cpp}
 
 \subsection{Gomory-Hu Tree (All-Pairs Min Cut)}
 \inputminted{c++}{codes/flow_matching/gomory_hu.cpp}
 
-\subsection{General Matching (Blossom)}
+\subsection{General Matching (Blossom) ($O(V^3)$)}
 \inputminted{c++}{codes/flow_matching/general_matching.cpp}
 
 \subsection{Hungarian Algorithm ($O(n^3)$)}
 \inputminted{c++}{codes/flow_matching/hungarian.cpp}
+
+\subsection{Matching / Matroid Lemmas}
+\input{codes/flow_matching/lemma}
 
 \section{String}
 \subsection{KMP}
@@ -301,8 +307,8 @@
 \subsection{Manacher}
 \inputminted{c++}{codes/string/manacher.cpp}
 
-\subsection{Suffix Array + LCP ($O(n \log^2 n)$)}
-\inputminted{c++}{codes/string/suffix_array.cpp}
+\subsection{Suffix Array + LCP ($O(n \log n)$)}
+\inputminted{c++}{codes/string/suffix_array(nlogn).cpp}
 
 \subsection{Suffix Automaton}
 \inputminted{c++}{codes/string/suffix_automaton.cpp}
@@ -312,6 +318,10 @@
 
 \subsection{LCS - Hirschberg ($O(nm)$)}
 \inputminted{c++}{codes/string/hirschberg.cpp}
+\subsection{Circular LCS ($O(nm)$)}
+\inputminted{c++}{codes/string/circular_lcs.cpp}
+\subsection{De Bruijn Sequence}
+\inputminted{c++}{codes/string/de_bruijn.cpp}
 
 \section{Miscellaneous}
 \subsection{Random Generator}
@@ -335,8 +345,8 @@
 % \subsection{Parallel Binary Search}
 % \inputminted{c++}{codes/miscellaneous/parallel_binary_search.cpp}
 
-\subsection{Faker's Algorithm ($O(n \log n)$)}
-\inputminted{c++}{codes/miscellaneous/faker.cpp}
+% \subsection{Faker's Algorithm ($O(n \log n)$)}
+% \inputminted{c++}{codes/miscellaneous/faker.cpp}
 
 \subsection{Matroid Intersection}
 \inputminted{c++}{codes/miscellaneous/matroid_intersection.cpp}
@@ -347,8 +357,8 @@
 \subsection{Lemma}
 \input{codes/miscellaneous/lemma}
 
-\section{Template}
-\inputminted{c++}{codes/template/template.cpp}
+% \section{Template}
+% \inputminted{c++}{codes/template/template.cpp}
 
 \end{multicols*}
 \end{document}

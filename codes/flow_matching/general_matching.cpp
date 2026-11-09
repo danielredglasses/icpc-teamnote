@@ -1,4 +1,4 @@
-// Maximum matching on a general graph (Blossom algorithm), O(V^3)
+// Maximum matching on a general graph (Blossom algorithm)
 // usage: set n and edges[u] (undirected, add both directions);
 // int m = general_matching();
 // match[i] = i's partner (-1 if unmatched)
@@ -36,7 +36,6 @@ int lca(int a, int b) {
     }
 }
 
-// returns the endpoint of an augmenting path from 'root', -1 if none
 int find_path(int root) {
     memset(used, false, sizeof used);
     memset(p, -1, sizeof p);

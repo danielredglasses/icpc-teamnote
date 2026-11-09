@@ -105,6 +105,13 @@ g(n) = \sum_{d \mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)
     \end{aligned}
     \end{equation*}
 
+    \item \textbf{Point and Line Distance} \\ 
+    \begin{equation*}
+    \begin{aligned}
+    d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}
+    \end{aligned}
+    \end{equation*}
+
     \item \textbf{Angle Addition Formulas} \\
     \begin{equation*}
     \begin{aligned}
@@ -157,12 +164,14 @@ g(n) = \sum_{d \mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)
     \end{equation*} \\
     counts vote sequences where A stays strictly ahead throughout; $B(n+1,n) = C_n$.
 
-    \item \textbf{Motzkin Numbers} \\
-    \begin{equation*}
-    \begin{aligned}
-    M_0 = 1, \quad M_{n+1} = M_n + \sum_{k=0}^{n-1} M_k M_{n-1-k}
-    \end{aligned}
-    \end{equation*} \\
+    \item \textbf{Motzkin Numbers}
+\begin{minted}[fontsize=\small]{c++}
+m[0] = 1;
+for(int n=0; n<N; n++){
+    m[n+1] = m[n];
+    for(int k=0; k<n; k++) m[n+1] = (m[n+1] + m[k] * m[n-1-k]) % MOD;
+}
+\end{minted}
     counts paths $(0,0) \to (n,0)$ with steps $U=(1,1), D=(1,-1), F=(1,0)$ that never go below the $x$-axis.
 
     \item \textbf{Narayana Numbers} \\
@@ -181,28 +190,28 @@ g(n) = \sum_{d \mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)
     \end{equation*} \\
     counts monotone paths $(0,0) \to (n,n)$ with steps $(1,0), (0,1), (1,1)$ that never rise above $y=x$.
 
-    \item \textbf{Stirling Numbers (1st kind, unsigned)} \\
-    \begin{equation*}
-    \begin{aligned}
-    \left[{n \atop k}\right] = (n-1)\left[{n-1 \atop k}\right] + \left[{n-1 \atop k-1}\right], \quad \left[{0 \atop 0}\right] = 1
-    \end{aligned}
-    \end{equation*} \\
+    \item \textbf{Stirling Numbers (1st kind, unsigned)}
+\begin{minted}[fontsize=\small]{c++}
+s[0][0] = 1;
+for(int n=1; n<=N; n++) for(int k=1; k<=n; k++)
+    s[n][k] = ((n-1) * s[n-1][k] + s[n-1][k-1]) % MOD;
+\end{minted}
     unsigned $\left[{n\atop k}\right]$ counts permutations of $n$ elements with $k$ cycles.
 
-    \item \textbf{Stirling Numbers (2nd kind)} \\
-    \begin{equation*}
-    \begin{aligned}
-    \left\{{n \atop k}\right\} = k\left\{{n-1 \atop k}\right\} + \left\{{n-1 \atop k-1}\right\} = \frac{1}{k!}\sum_{j=0}^k (-1)^j \binom{k}{j}(k-j)^n
-    \end{aligned}
-    \end{equation*} \\
+    \item \textbf{Stirling Numbers (2nd kind)}
+\begin{minted}[fontsize=\small]{c++}
+s[0][0] = 1;
+for(int n=1; n<=N; n++) for(int k=1; k<=n; k++)
+    s[n][k] = (k * s[n-1][k] + s[n-1][k-1]) % MOD;
+\end{minted}
     counts partitions of an $n$-set into $k$ nonempty unlabeled blocks.
 
-    \item \textbf{Eulerian Numbers} \\
-    \begin{equation*}
-    \begin{aligned}
-    A(n, k) = (k+1)A(n-1, k) + (n-k)A(n-1, k-1), \quad A(1, 0) = 1
-    \end{aligned}
-    \end{equation*} \\
+    \item \textbf{Eulerian Numbers}
+\begin{minted}[fontsize=\small]{c++}
+a[0][0] = 1;
+for(int n=1; n<=N; n++) for(int k=0; k<n; k++)
+    a[n][k] = ((k+1) * a[n-1][k] + (k ? (n-k) * a[n-1][k-1] : 0)) % MOD;
+\end{minted}
     counts permutations of $1..n$ with exactly $k$ descents ($0 \leq k \leq n-1$).
 
     \item \textbf{Bell Numbers} \\
@@ -214,12 +223,14 @@ g(n) = \sum_{d \mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)
     counts partitions of an $n$-set into any number of nonempty unlabeled blocks.
     Equivalently, $B_n = n! \cdot [x^n]\, e^{e^x - 1}$: expand $e^{e^x-1}$ as a formal power series and take $n!$ times the coefficient of $x^n$.
 
-    \item \textbf{Partition Numbers} \\
-    \begin{equation*}
-    \begin{aligned}
-    p(n) = \sum_{k=1}^{\infty} (-1)^{k-1} \left[ p\!\left(n - \tfrac{k(3k-1)}{2}\right) + p\!\left(n - \tfrac{k(3k+1)}{2}\right) \right], \ p(0) = 1
-    \end{aligned}
-    \end{equation*} \\
+    \item \textbf{Partition Numbers}
+\begin{minted}[fontsize=\small]{c++}
+p[0] = 1;
+for(int n=1; n<=N; n++) for(int k=1, g; (g = k*(3*k-1)/2)<=n; k++){
+    ll t = (p[n-g] + (g+k <= n ? p[n-g-k] : 0)) % MOD;
+    p[n] = (p[n] + (k & 1 ? t : MOD - t)) % MOD;
+}
+\end{minted}
     (pentagonal number theorem) counts ways to write $n$ as a sum of positive integers, order not mattering.
 
     \item \textbf{Parking Functions} \\
@@ -258,19 +269,11 @@ g(n) = \sum_{d \mid n} \mu(d)\, f\!\left(\frac{n}{d}\right)
     \end{equation*} \\ 
     $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987$
 
-    \item \textbf{Point and Line Distance} \\ 
-    \begin{equation*}
-    \begin{aligned}
-    d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}
-    \end{aligned}
-    \end{equation*}
-
-    \item \textbf{Derangement} \\ 
-    \begin{equation*}
-    \begin{aligned}
-    !n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!}
-    \end{aligned}
-    \end{equation*} \\
+    \item \textbf{Derangement}
+\begin{minted}[fontsize=\small]{c++}
+d[0] = 1, d[1] = 0;
+for(int n=2; n<=N; n++) d[n] = (n-1) * (d[n-1] + d[n-2]) % MOD;
+\end{minted}
     $!n$ = permutations of $n$ elements with no fixed points.
 
     \item \textbf{Harmonic Series} \\
@@ -308,37 +311,37 @@ v_p(a^n - b^n) &= v_p(a-b) + v_p(a+b) + v_p(n) - 1
     \end{aligned}
     \end{equation*}
 
-    \item \textbf{Matroid} \\
-    A matroid $M = (E, \mathcal{I})$ is a ground set $E$ with a family of ``independent'' subsets
-    $\mathcal{I} \subseteq 2^E$ satisfying:
-    (I1) $\emptyset \in \mathcal{I}$;
-    (I2) hereditary: $B \in \mathcal{I}, A \subseteq B \implies A \in \mathcal{I}$;
-    (I3) exchange: $A, B \in \mathcal{I}, |A| < |B| \implies \exists x \in B \setminus A$ with
-    $A \cup \{x\} \in \mathcal{I}$. \\
-    A maximal independent set is a \emph{basis}; by (I3) all bases have the same size, the
-    \emph{rank} $r(M)$. The greedy algorithm (sort elements by weight, add each if it keeps the
-    current set independent) finds a max-weight independent set / basis for any matroid, and only
-    for matroids (this is essentially matroid's defining property for optimization).
-    Common examples: \emph{graphic matroid} ($E$ = edges, independent = forests -- greedy on
-    this is Kruskal's MST), \emph{linear matroid} ($E$ = vectors, independent = linearly
-    independent sets), \emph{uniform matroid} $U_{k,n}$ (independent = any subset of size $\le k$),
-    \emph{transversal matroid} of a bipartite graph $G=(X,Y,E)$ ($A \subseteq X$ independent iff
-    matchable into $Y$ -- see \emph{Matching is a Linear Matroid} for its linear representation).
-
-    \item \textbf{Matroid Intersection Theorem} \\
-    For two matroids $M_1=(E,\mathcal{I}_1)$, $M_2=(E,\mathcal{I}_2)$ on the same ground set,
-    \begin{equation*}
-    \begin{aligned}
-    \max_{I \in \mathcal{I}_1 \cap \mathcal{I}_2} |I| = \min_{A \subseteq E} \big(r_1(A) + r_2(E \setminus A)\big)
-    \end{aligned}
-    \end{equation*}
-    where $r_1, r_2$ are the rank functions of $M_1, M_2$. A maximum common independent set can be
-    found in polynomial time by repeatedly augmenting along a shortest path in the exchange graph
-    (arcs $y \to x$ for $x \in I, y \notin I$ if $I - x + y \in \mathcal{I}_1$, and $x \to y$ if
-    $I - x + y \in \mathcal{I}_2$, plus source arcs from $\{y : I+y \in \mathcal{I}_1\}$ and sink
-    arcs to $\{y : I+y \in \mathcal{I}_2\}$), analogous to augmenting paths in bipartite matching.
-    Bipartite matching itself is the intersection of two partition (transversal) matroids on the
-    edge set, one per side; this is why matching, arborescence, and colored-forest problems all
-    reduce to matroid intersection. (Three or more matroids: intersection is NP-hard in general.)
+%     \item \textbf{Matroid} \\
+%     A matroid $M = (E, \mathcal{I})$ is a ground set $E$ with a family of ``independent'' subsets
+%     $\mathcal{I} \subseteq 2^E$ satisfying:
+%     (I1) $\emptyset \in \mathcal{I}$;
+%     (I2) hereditary: $B \in \mathcal{I}, A \subseteq B \implies A \in \mathcal{I}$;
+%     (I3) exchange: $A, B \in \mathcal{I}, |A| < |B| \implies \exists x \in B \setminus A$ with
+%     $A \cup \{x\} \in \mathcal{I}$. \\
+%     A maximal independent set is a \emph{basis}; by (I3) all bases have the same size, the
+%     \emph{rank} $r(M)$. The greedy algorithm (sort elements by weight, add each if it keeps the
+%     current set independent) finds a max-weight independent set / basis for any matroid, and only
+%     for matroids (this is essentially matroid's defining property for optimization).
+%     Common examples: \emph{graphic matroid} ($E$ = edges, independent = forests -- greedy on
+%     this is Kruskal's MST), \emph{linear matroid} ($E$ = vectors, independent = linearly
+%     independent sets), \emph{uniform matroid} $U_{k,n}$ (independent = any subset of size $\le k$),
+%     \emph{transversal matroid} of a bipartite graph $G=(X,Y,E)$ ($A \subseteq X$ independent iff
+%     matchable into $Y$ -- see \emph{Matching is a Linear Matroid} for its linear representation).
+% 
+%     \item \textbf{Matroid Intersection Theorem} \\
+%     For two matroids $M_1=(E,\mathcal{I}_1)$, $M_2=(E,\mathcal{I}_2)$ on the same ground set,
+%     \begin{equation*}
+%     \begin{aligned}
+%     \max_{I \in \mathcal{I}_1 \cap \mathcal{I}_2} |I| = \min_{A \subseteq E} \big(r_1(A) + r_2(E \setminus A)\big)
+%     \end{aligned}
+%     \end{equation*}
+%     where $r_1, r_2$ are the rank functions of $M_1, M_2$. A maximum common independent set can be
+%     found in polynomial time by repeatedly augmenting along a shortest path in the exchange graph
+%     (arcs $y \to x$ for $x \in I, y \notin I$ if $I - x + y \in \mathcal{I}_1$, and $x \to y$ if
+%     $I - x + y \in \mathcal{I}_2$, plus source arcs from $\{y : I+y \in \mathcal{I}_1\}$ and sink
+%     arcs to $\{y : I+y \in \mathcal{I}_2\}$), analogous to augmenting paths in bipartite matching.
+%     Bipartite matching itself is the intersection of two partition (transversal) matroids on the
+%     edge set, one per side; this is why matching, arborescence, and colored-forest problems all
+%     reduce to matroid intersection. (Three or more matroids: intersection is NP-hard in general.)
 
 \end{itemize}

@@ -1,4 +1,3 @@
-// Time: O(E sqrt(V))
 int connected[200005], rev_connected[200005];
 bool visited[200005] = {false}; int dist[200005] = {0};
 void bfs() {

@@ -2,7 +2,7 @@
 
 ICPC 스타일 팀노트. `teamnote.tex`가 `codes/` 아래의 C++ 스니펫들을 모아 한 권의 인쇄용 PDF로 조립합니다.
 
-**Last updated:** 2026-11-02 (v1.0)
+**Last updated:** 2026-11-09 (v1.1)
 
 ## 목차
 

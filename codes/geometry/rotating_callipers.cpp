@@ -7,7 +7,6 @@ ll dist(pll a, pll b) {
     return dx*dx + dy*dy; 
 }
 
-// usage: hull in CCW order;
 ll rotating_callipers(vector<pll> &convex, pii &ans) {
     int m = convex.size();
     if(m == 1) { 

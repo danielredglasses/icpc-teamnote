@@ -6,7 +6,6 @@ int n;
 vi edges[505];
 ll capacity[505][505], flow[505][505];
 int level[505], idx[505];
-// par[i]/tree_weight[i] = i's parent and edge weight in the GH tree (i=2..n)
 int par[505]; ll tree_weight[505];
 
 void add_edge(int u, int v, ll w) {
@@ -42,8 +41,7 @@ ll find_flow(int cur, int sink, ll curflow) {
     }
     return 0;
 }
-// after this returns, level[j] != -1 means j is on source's side of the
-// resulting min cut
+
 ll max_flow(int source, int sink) {
     memset(flow, 0, sizeof flow);
     ll result = 0;
@@ -62,8 +60,6 @@ void build_gomory_hu() {
     }
 }
 
-// max flow / min cut between a and b, read off the tree (min edge weight
-// along the a..b path)
 ll query(int a, int b) {
     unordered_map<int, ll> seen;
     ll cur = (ll) 4e18;

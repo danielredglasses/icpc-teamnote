@@ -22,8 +22,6 @@ pld operator - (pld a, pld b){ return pld(a.first - b.first, a.second - b.second
 
 const ld EPS = 1e-9;
 int dcmp(ld x) { return x < -EPS ? -1 : x > EPS ? 1 : 0; }
-// sq(x) = x*x, size(p) = hypot(p.x, p.y)
-// sz2(p) = sq(p.x)+sq(p.y), r90(p) = (-p.y, p.x)
 ld sq(ld x) { return x * x; }
 ld size(pld p) { return hypot(p.x, p.y); }
 ld sz2(pld p) { return sq(p.x) + sq(p.y); }

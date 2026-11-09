@@ -1,5 +1,3 @@
-// Time: is_prime O(log^2 n); pollard_rho expected O(n^(1/4) log n);
-// factorize expected O(n^(1/4) log n) per factor
 inline ull addmod(ull a, ull b, ull p) { return (ull)(((i128)a+b)%p); }
 inline ull mulmod(ull a, ull b, ull p) { return (ull)((i128)a*b%p); }
 inline ull powmod(ull a, ull b, ull p) {

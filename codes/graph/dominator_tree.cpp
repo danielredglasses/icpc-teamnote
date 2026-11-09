@@ -1,20 +1,21 @@
-// Time: iterative dominance computation, O(V+E) per pass; converges in a
-// small constant number of passes for typical CFGs (handles cycles, unlike
-// a plain topological sweep)
-vector<pll> edges[200005], rev_edges[200005];
+vi edges[200005], rev_edges[200005];
 vi edges_dominator[200005], order; // order = nodes reachable from s, in DFS postorder
-// rpo = reverse-postorder number (smaller = closer to s)
 int rpo[200005], idom[200005];
 bool visited[200005];
 
+void init(int n) {
+    for(int i=1; i<=n; i++) {
+        edges[i].clear(); rev_edges[i].clear(); edges_dominator[i].clear();
+        visited[i] = false; idom[i] = -1;
+    }
+}
+
 void dfs_order(int index) {
     visited[index] = true;
-    for(pll e : edges[index]) if(!visited[e.first]) dfs_order(e.first);
+    for(int nx : edges[index]) if(!visited[nx]) dfs_order(nx);
     order.push_back(index);
 }
 
-// walk two idom-chain candidates up to their common ancestor, using rpo
-// to decide which side climbs
 int intersect(int a, int b) {
     while(a != b) {
         while(rpo[a] > rpo[b]) a = idom[a];
@@ -36,9 +37,9 @@ void dominator_tree(int s) {
         changed = false;
         for(int v : order) if(v != s) {
             int new_idom = -1;
-            for(pll e : rev_edges[v]) {
-                if(idom[e.first] == -1) continue;
-                new_idom = (new_idom == -1) ? e.first : intersect(new_idom, e.first);
+            for(int u : rev_edges[v]) {
+                if(idom[u] == -1) continue;
+                new_idom = new_idom == -1 ? u : intersect(new_idom, u);
             }
             if(new_idom != -1 && idom[v] != new_idom) { idom[v] = new_idom; changed = true; }
         }

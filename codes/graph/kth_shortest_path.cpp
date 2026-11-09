@@ -1,4 +1,3 @@
-// Time: O((V+E) log V + K log K) (Eppstein's algorithm)
 struct node { // persistent leftist heap
     ll key; int rank, value;
     int l, r; // 0 = null
@@ -21,7 +20,7 @@ int insert(int cur, ll key, int value) {
 }
 
 int n;
-vector<pii> edges[250005], revedges[250005];
+vector<pll> edges[250005], revedges[250005];
 vi edges1[250005];
 
 ll dist[250005]; int parent[250005];
@@ -35,7 +34,7 @@ void dijkstra(int e) {
         if(tmp.first > dist[tmp.second]) continue;
 
         int cur = tmp.second;
-        for(pii e : revedges[cur]) if(dist[cur] + e.second < dist[e.first]) {
+        for(pll e : revedges[cur]) if(dist[cur] + e.second < dist[e.first]) {
             dist[e.first] = dist[cur] + e.second;
             parent[e.first] = cur;
             pq.push({dist[e.first], e.first});
@@ -47,7 +46,7 @@ ll result[250005];
 void find_k_shortest_walk(int s, int e, int k) {
     for(int i=1; i<=k; i++) result[i] = -1;
 
-    for(int i=1; i<=n; i++) for(pii e : edges[i]) revedges[e.first].push_back({i, e.second});
+    for(int i=1; i<=n; i++) for(pll e : edges[i]) revedges[e.first].push_back({i, e.second});
     dijkstra(e);
 
     if(dist[s] == 1e18) return;
@@ -58,7 +57,7 @@ void find_k_shortest_walk(int s, int e, int k) {
     while(!q.empty()) {
         int cur = q.front(); q.pop();
         bool flag = false;
-        for(pii e : edges[cur]) {
+        for(pll e : edges[cur]) {
             if(dist[e.first] == 1e18) continue;
             ll cost = e.second + dist[e.first] - dist[cur];
             if(!flag && e.first == parent[cur] && cost == 0) {
@@ -88,28 +87,5 @@ void find_k_shortest_walk(int s, int e, int k) {
         if(nodes[heap[curnode].value]) pq.push({cur.first + heap[nodes[heap[curnode].value]].key, nodes[heap[curnode].value]});
         if(heap[curnode].l) pq.push({cur.first + heap[heap[curnode].l].key - heap[curnode].key, heap[curnode].l});
         if(heap[curnode].r) pq.push({cur.first + heap[heap[curnode].r].key - heap[curnode].key, heap[curnode].r});
-    }
-}
-
-int N, M, s, e;
-ll arr[250005];
-ll ans = 0;
-
-void SolveProblem() {
-    n = N+2;
-    find_k_shortest_walk(s, e, M);
-
-    for(int i=1; i<=M; i++) cout << result[i] << "\n";
-}
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
-    int test_case = 1;
-    // cin >> test_case;
-    for(int tc = 1; tc <= test_case; tc++) {
-        SolveProblem();
     }
 }

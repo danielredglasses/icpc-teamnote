@@ -1,4 +1,3 @@
-// Time: O(E log E) (the log factor is from sorting each group)
 // (neighbor, edge id); both directions of an edge share the same id
 vector<pii> edges[100005];
 int nodenum[100005], ord[100005], cnt = 0;
@@ -39,8 +38,6 @@ void dfs(int index, int parent_eid) {
     }
 }
 
-// group[g] lists edge ids forming cycle/bridge group g,
-// groupnum[edge id] = its group
 void SolveProblem() {
     for(int i=1; i<=n; i++) nodenum[i] = -1;
     for(int i=1; i<=n; i++) if(nodenum[i] == -1) dfs(i, -1);

@@ -1,5 +1,4 @@
-// Time: O(V^2 E) general graphs; O(E sqrt(V)) for unit-capacity graphs
-// (e.g. bipartite matching)
+// O(E sqrt(V)) for unit-capacity graphs (e.g. bipartite matching)
 const int MAXV = 505;
 ll capacity[MAXV][MAXV], flow[MAXV][MAXV];
 vi edges[MAXV]; int level[MAXV], idx[MAXV], source, sink, teamnum[MAXV]; ll result = 0;
