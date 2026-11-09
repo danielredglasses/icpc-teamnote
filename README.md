@@ -6,16 +6,15 @@ ICPC 스타일 팀노트. `teamnote.tex`가 `codes/` 아래의 C++ 스니펫들�
 
 ## 목차
 
-- **Mathematics**: Bit Function, XOR / Linear Basis, FWT, Modular Inverse, Extended Euclidean Algorithm, CRT, Miller Rabin + Pollard Rho, Discrete Log, Discrete Sqrt, Polynomial, Power Sums via NTT, Berlekamp Massey, Floor Sum, Kitamasa
+- **Mathematics**: Bit Function, XOR / Linear Basis, Gaussian Elimination, FWT, Modular Inverse, Extended Euclidean Algorithm, CRT, Miller Rabin + Pollard Rho, Discrete Log, Discrete Sqrt, Polynomial, Power Sums via NTT, Berlekamp Massey, Floor Sum, Kitamasa
 - **Dynamic Programming**: Deque trick, CHT, DnC Optimization, Knuth Optimization, Slope Trick, Submask Enumeration, SOS DP, Connection Profile DP, Alien's Trick
-- **Data Structure**: Splay Tree, EER Tree, Link-Cut Tree, Li-Chao Tree
-- **Geometry**: CCW, Convex Hull, 3D Convex Hull, Rotating Callipers, Closest Point on Convex Polygon to a Line, Minimum Bounding Rectangle, Closest Pair of Points, KD-Tree, 2D/3D Minimum Enclosing Circle, Point in Polygon / Segment-Polygon Intersection, Point/Segment Reflection and Rotation, 3D Distances, Cut Polygon by Line, Polygon Union Area, Polygon Centroid, Circle-Line/Circle-Circle/Segment-Circle Intersection, Half Plane Intersection, Planar Graph, Shamos-Hoey, Voronoi Diagram
+- **Data Structure**: Splay Tree, EER Tree, Link-Cut Tree, Li-Chao Tree, Stern-Brocot Tree
+- **Geometry**: CCW, Convex Hull, 3D Convex Hull, Rotating Callipers, Closest Point on Convex Polygon to a Line, Minimum Bounding Rectangle, Closest Pair of Points, KD-Tree, 2D/3D Minimum Enclosing Circle, Point/Segment Reflection and Rotation, 3D Distances, Polygon Union Area, Polygon Centroid, Circle-Line/Circle-Circle/Segment-Circle Intersection, Half Plane Intersection, Planar Graph, Shamos-Hoey, Voronoi Diagram
 - **Graph**: SPFA, SCC + 2-SAT, BCC, Cactus, Euler Path/Circuit, Articulation Point/Bridge, Dominator Tree, Offline Dynamic Connectivity, Online Dynamic MST, $k$th Shortest Path (Eppstein)
 - **Tree**: HLD, Centroid Decomposition, Tree Compression, Tree Isomorphism
-- **Flow / Matching**: Hopcroft-Karp, Matching/Matroid Lemmas, Dinic, MCMF (Dijkstra+Potentials), Stable Marriage, Circulation, Stoer-Wagner, Gomory-Hu Tree, General Matching (Blossom), Hungarian Algorithm
-- **String**: KMP, Aho-Corasick, Hashing (Rabin Karp), Manacher, Suffix Array + LCP, Suffix Automaton, Z Algorithm, LCS - Hirschberg
-- **Miscellaneous**: Random Generator, Rope, PBDS, Big Integer, Mo's, CDQ, Faker's Algorithm, Matroid Intersection, Primes and Divisors Number, Lemma (자주 쓰는 정리/공식 모음)
-- **Template**: 대회 제출용 기본 템플릿
+- **Flow / Matching**: Hopcroft-Karp, Dinic, MCMF (Dijkstra+Potentials), Stable Marriage, Circulation, Stoer-Wagner, Gomory-Hu Tree, General Matching (Blossom), Hungarian Algorithm, Matching/Matroid Lemmas
+- **String**: KMP, Aho-Corasick, Hashing (Rabin Karp), Manacher, Suffix Array + LCP, Suffix Automaton, Z Algorithm, LCS - Hirschberg, Circular LCS, De Bruijn Sequence
+- **Miscellaneous**: Random Generator, Rope, PBDS, Big Integer, Mo's, CDQ, Matroid Intersection, Primes and Divisors Number, Lemma (자주 쓰는 정리/공식 모음)
 
 ## 빌드 방법
 
@@ -48,4 +47,4 @@ grep -oE "\([0-9]+ pages" teamnote.log
 - `teamnote.tex` — 문서 전체를 조립하는 단일 LaTeX 소스 (2단 레이아웃, minted 스타일, 여백 등 설정 포함)
 - `codes/<category>/<algorithm>.cpp` — 알고리즘별 파일 (`mathematics`, `dp`, `data_structure`, `geometry`, `graph`, `tree`, `flow_matching`, `string`, `miscellaneous`, `template`)
 - `codes/flow_matching/lemma.tex`, `codes/miscellaneous/lemma.tex`, `codes/miscellaneous/primes.tex` — 코드가 아닌 산문/수식 모음 (`\input`으로 삽입)
-- `codes/flow_matching/mcmf_spfa.cpp`, `codes/miscellaneous/parallel_binary_search.cpp` — 코드만 보관 (`teamnote.tex`에서 주석 처리되어 PDF에는 포함되지 않음)
+- `codes/geometry/point_in_polygon.cpp`, `codes/geometry/polygon_clip.cpp`, `codes/flow_matching/mcmf_spfa.cpp`, `codes/miscellaneous/parallel_binary_search.cpp`, `codes/miscellaneous/faker.cpp`, `codes/template/template.cpp` — 코드만 보관 (`teamnote.tex`에서 주석 처리되어 PDF에는 포함되지 않음)
